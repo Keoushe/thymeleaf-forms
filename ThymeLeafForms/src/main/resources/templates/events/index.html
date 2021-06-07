@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
-<body>
-    <th:block>
-        <li th:each="item : ${events}" th:text="${item}"></li>
-    </th:block>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+
+ <nav th:replace="fragments :: navigation"></nav>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+<!-- <p th:unless="${events} and ${events.size()}">No Events</p>-->
+    <tr th:each="event : ${events}">
+        <td  th:text="${event}"></td>
+    </tr>
+</table>
 </body>
 </html>
